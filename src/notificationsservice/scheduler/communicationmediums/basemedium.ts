@@ -9,7 +9,7 @@ abstract class BaseMedium {
      * @param receiver It contains the receiver address object
      * @param message It contains the actual message
      */
-    abstract async sendMessage(receiver: any, message: any): Promise<boolean>;
+    abstract sendMessage(receiver: any, message: any): Promise<boolean>;
 
     /**
      * Implement this method to initialize the sender object
