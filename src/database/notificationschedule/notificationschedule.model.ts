@@ -4,7 +4,7 @@ import { NotificationSchedule } from './notificationschedule.interface';
 
 const notificationSchedule = new Schema({
     scheduleTime: {
-        type: String,
+        type: Schema.Types.String,
         default: null
     },
     message:{
@@ -13,7 +13,7 @@ const notificationSchedule = new Schema({
     },
     status: {
         type: String,
-        default: null
+        default: 'scheduled'
     },
     medium: {
         type: String,

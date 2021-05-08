@@ -11,11 +11,14 @@ class Scheduler {
 
     public users = userModel;
     public communicationMedium = null;
+    public now = new Date();
+
     public async run() {
+        this.now.setSeconds(0,0);
         const schedule: NotificationSchedule[] = await notificationScheduleModel.find(
             {
                 status: 'scheduled',
-                scheduleTime: new Date()
+                scheduleTime:this.now.toISOString()
             }
         );
         console.log(`Found ${schedule.length} notification scheduled`);

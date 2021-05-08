@@ -24,7 +24,7 @@ class Email extends BaseMedium {
                 from: this.configuration.email,
                 to: receiver.email,
                 subject: message.subject,
-                html: message.text
+                html: message.message
             };
             const result = await this.senderObject.sendMail(mailOptions);
             return true;

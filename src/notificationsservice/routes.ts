@@ -1,6 +1,9 @@
 import Route from "../interface/route";
 import { Router } from "express";
 import NotificationController from "./controller";
+
+import CreateScheduleDto from "../dto/CreateScheduleDto";
+import validationMiddleware from "../middleware/validation.middleware";
 class NotificationRoutes implements Route {
     public path = '/notifications';
     public router = Router();
@@ -11,10 +14,12 @@ class NotificationRoutes implements Route {
     }
 
     private initializeRoutes() {
-        this.router.get('', this.notificationController.createSchedule);
+        this.router.post('',validationMiddleware(CreateScheduleDto,true,'body'),this.notificationController.createSchedule);
     }
 
 
 }
 
 export default NotificationRoutes;
+
+
