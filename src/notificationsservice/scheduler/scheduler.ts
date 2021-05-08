@@ -14,11 +14,11 @@ class Scheduler {
     public now = new Date();
 
     public async run() {
-        this.now.setSeconds(0,0);
+        this.now.setSeconds(0, 0);
         const schedule: NotificationSchedule[] = await notificationScheduleModel.find(
             {
                 status: 'scheduled',
-                scheduleTime:this.now.toISOString()
+                scheduleTime: this.now.toISOString()
             }
         );
         console.log(`Found ${schedule.length} notification scheduled`);
@@ -26,9 +26,9 @@ class Scheduler {
             await notificationScheduleModel.updateOne({ _id: schedule._id }, { status: 'inprogress' });
             await this.processSchedule(schedule);
             await notificationScheduleModel.updateOne({ _id: schedule._id }, { status: 'completed' });
-            
+
         });
-        
+
     }
 
     private async processSchedule(schedule: NotificationSchedule) {
@@ -37,7 +37,7 @@ class Scheduler {
         const subscribedUsers: User[] = await this.users.find({ isSubscribed: true });
         console.log('Info:', `Sending notification to ${subscribedUsers.length} users`);
 
-        await Promise.all(subscribedUsers.map(async (user:User)=> {
+        await Promise.all(subscribedUsers.map(async (user: User) => {
             try {
                 await communicationMedium.sendMessage(user.communicationDetails, schedule.message);
                 console.log(`Successfully sent to ${user.communicationDetails}`);
@@ -54,7 +54,7 @@ class Scheduler {
         switch (medium) {
             case 'email': return new Email({ email: process.env.email, password: process.env.emailpassword });
             case 'whatsapp': return new Whatsapp({ apiKey: 'aefui-assem-pifhs-aksls' });
-            default: return new Email({ email: 'malavanhari3@gmail.com', password: 'mlvnROD@2020' });
+            default: return new Email({ email: process.env.email, password: process.env.emailpassword });
         }
     }
 }

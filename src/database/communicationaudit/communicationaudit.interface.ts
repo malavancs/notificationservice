@@ -7,4 +7,3 @@ export interface CommunicationAudit {
     sentAt: Date;
     userId: string;
 }
-  

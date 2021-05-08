@@ -17,12 +17,12 @@ function validationMiddleware(type: any, skipMissingProperties = false, value: '
   };
 }
 
-function getErrorMesssage(error:ValidationError) {
+function getErrorMesssage(error: ValidationError) {
   const result = [];
   if (error.children) {
-      error.children.forEach((child) => {
-          result.push(...getErrorMesssage(child));
-      });
+    error.children.forEach((child) => {
+      result.push(...getErrorMesssage(child));
+    });
   }
   if (error.constraints) result.push(...Object.values(error.constraints));
   return result;

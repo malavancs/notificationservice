@@ -7,7 +7,7 @@ const notificationSchedule = new Schema({
         type: Schema.Types.String,
         default: null
     },
-    message:{
+    message: {
         type: Schema.Types.Mixed,
         default: null
     },
@@ -21,5 +21,5 @@ const notificationSchedule = new Schema({
 });
 
 
-const notificationScheduleModel = model<NotificationSchedule & Document>('NotificationSchedule',notificationSchedule);
+const notificationScheduleModel = model<NotificationSchedule & Document>('NotificationSchedule', notificationSchedule);
 export default notificationScheduleModel;

@@ -1,5 +1,5 @@
 export interface NotificationSchedule {
-    _id:any;
+    _id: any;
     message: any;
     scheduleTime: string;
     status: string | 'scheduled' | 'inprogress' | 'completed';

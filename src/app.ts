@@ -23,8 +23,8 @@ class App {
         routes.forEach(route => {
             this.app.use('/', route.router);
         });
-    } 
-    
+    }
+
     private initializeErrorHandling() {
         this.app.use(errorMiddleware);
     }

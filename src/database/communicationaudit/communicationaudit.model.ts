@@ -4,7 +4,7 @@ import { CommunicationAudit } from './communicationaudit.interface';
 
 
 const communicationAudit: Schema = new Schema({
-    message : {
+    message: {
         type: String,
         required: true
     },

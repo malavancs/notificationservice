@@ -4,11 +4,11 @@ import { Retryable } from "typescript-retry-decorator";
 
 class Whatsapp extends BaseMedium {
 
-    constructor(public configuration){
+    constructor(public configuration) {
         super(configuration);
     }
     @Retryable({ maxAttempts: 3 })
-    async  sendMessage(receiver: any, message: string) {
+    async sendMessage(receiver: any, message: string) {
         // Implement whatsapp api here
         return true;
     }

@@ -11,10 +11,13 @@ require('dotenv').config()
 const app = new App([new NotificationRoutes()]);
 app.listen();
 
+/**
+ * Cron that runs every minute to check anything scheduled
+ */
 cron.schedule('* * * * *', async () => {
-      console.log("*****Running cron***** @",new Date().toISOString());
+      console.log("*****Running cron***** @", new Date().toISOString());
       const scheduler = new Scheduler();
       await scheduler.run();
-      console.log("***** Cron done ****** @",new Date().toISOString());
+      console.log("***** Cron done ****** @", new Date().toISOString());
 });
 

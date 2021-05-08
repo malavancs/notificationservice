@@ -29,7 +29,7 @@ class Email extends BaseMedium {
             const result = await this.senderObject.sendMail(mailOptions);
             return true;
         } catch (e) {
-            throw new Error('Retry failed '+e);
+            throw new Error('Retry failed ' + e);
         }
     }
     initializeConfiguration(): void {

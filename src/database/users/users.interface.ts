@@ -1,7 +1,7 @@
 export interface CommunicationDetails {
   email: string;
   mobileNumber: string;
-  other: any;   
+  other: any;
 }
 export interface User {
   _id: string;
