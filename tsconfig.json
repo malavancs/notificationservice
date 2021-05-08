@@ -6,7 +6,8 @@
     "outDir": "dist",
     "sourceMap": true,
     "esModuleInterop":true,
-    "skipLibCheck":true
+    "skipLibCheck":true,
+        "baseUrl": "src"
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", ".vscode"]

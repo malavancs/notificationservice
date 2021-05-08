@@ -4,10 +4,12 @@
   "main": "src/server.ts",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon",
-    "dev": "nodemon",
+    "start": "npm run build && NODE_ENV=production node dist/server.js",
+    "dev": "cross-env NODE_ENV=development nodemon",
     "build": "tsc",
-    "script": "cd src/scripts && ts-node"
+    "test": "jest --forceExit --detectOpenHandles",
+    "lint": "eslint --ignore-path .gitignore --ext .ts src/",
+    "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
     "dotenv": "^9.0.0",
