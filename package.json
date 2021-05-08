@@ -4,7 +4,7 @@
   "main": "src/server.ts",
   "license": "MIT",
   "scripts": {
-    "start": "node --inspect=5858 -r ts-node/register ./src/server.ts",
+    "start": "nodemon",
     "dev": "nodemon",
     "build": "tsc",
     "script": "cd src/scripts && ts-node"
