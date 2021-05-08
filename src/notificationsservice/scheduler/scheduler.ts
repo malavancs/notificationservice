@@ -14,8 +14,8 @@ class Scheduler {
     public async run() {
         const schedule: NotificationSchedule[] = await notificationScheduleModel.find(
             {
-                // status: 'scheduled',
-                // scheduleTime: new Date()
+                status: 'scheduled',
+                scheduleTime: new Date()
             }
         );
         console.log(`Found ${schedule.length} notification scheduled`);
